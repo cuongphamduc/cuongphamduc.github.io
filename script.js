@@ -103,6 +103,9 @@ redirect_Page();
 
 //countdown
 
+var dateFuture = new Date();
+dateFuture.setSeconds(dateFuture.getSeconds() + 6);
+
 (function() {
     var animation = {
       newYear: document.querySelector(".new-year"),
@@ -110,7 +113,6 @@ redirect_Page();
         return Math.floor(Math.random() * (max - min + 1) + min);
       },
       get period() {
-        var dateFuture = new Date(new Date().getFullYear() + 1, 0, 1);
         var dateNow = new Date();
         var seconds = Math.floor((dateFuture - (dateNow))/1000);
         var minutes = Math.floor(seconds/60);
@@ -120,7 +122,7 @@ redirect_Page();
         minutes = minutes-(days*24*60)-(hours*60);
         seconds = seconds-(days*24*60*60)-(hours*60*60)-(minutes*60);
         return {
-          year: new Date().getFullYear() + 1,
+          year: new Date().getFullYear(),
           days: days,
           hours: hours,
           minutes: minutes,
