@@ -92,18 +92,14 @@ document.addEventListener("click", function()
     window.location="./main.html";
 });
 
-async function delay(delayInms) {
-  return new Promise(resolve  => {
-    setTimeout(() => {
-      resolve(2);
-    }, delayInms);
-  });
+let redirect_Page = () => {
+    let tID = setTimeout(function () {
+        window.location="./main.html";
+        window.clearTimeout(tID);
+    }, 5000);
 }
-async function main() {
-  let delayres = await delay(5000);
-  window.location="./main.html";
-}
-main();
+
+redirect_Page();
 
 //countdown
 
