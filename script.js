@@ -121,8 +121,14 @@ dateFuture.setSeconds(dateFuture.getSeconds() + 6);
         hours = hours-(days*24);
         minutes = minutes-(days*24*60)-(hours*60);
         seconds = seconds-(days*24*60*60)-(hours*60*60)-(minutes*60);
+
+        var dateObj = new Date();
+        var month = dateObj.getUTCMonth() + 1; //months from 1-12
+        var day = dateObj.getUTCDate();
+        var year = dateObj.getUTCFullYear();
+
         return {
-          year: new Date().getFullYear(),
+          year: day + "/" + month + "/" + year,
           days: days,
           hours: hours,
           minutes: minutes,
